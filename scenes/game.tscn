@@ -1,16 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=13 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://by18ihqb0xo0b" path="res://sprites/BG.png" id="1_htcch"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
 [ext_resource type="Texture2D" uid="uid://ts76odu4mlsp" path="res://sprites/glimblop.png" id="3_6pf8d"]
 [ext_resource type="Script" path="res://scenes/Food.gd" id="4_dxtdl"]
+[ext_resource type="Script" path="res://scenes/PointsUI.gd" id="5_n3gij"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
 radius = 146.0
 height = 292.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8hbpu"]
-radius = 72.0278
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvxrq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qxdi"]
+radius = 80.0562
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a81ly"]
 size = Vector2(689.5, 3336.75)
@@ -49,17 +52,25 @@ texture = ExtResource("3_6pf8d")
 
 [node name="Food" type="CharacterBody2D" parent="."]
 script = ExtResource("4_dxtdl")
+speed = null
+value = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Food"]
-position = Vector2(568, -71)
-shape = SubResource("CircleShape2D_8hbpu")
-
-[node name="Sprite2D" type="Sprite2D" parent="Food"]
+[node name="FoodSprite" type="Sprite2D" parent="Food"]
 modulate = Color(0.721569, 0.396078, 1, 1)
 texture_filter = 1
 position = Vector2(572, -79)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_6pf8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food"]
+shape = SubResource("CircleShape2D_dvxrq")
+
+[node name="Area2D" type="Area2D" parent="Food"]
+position = Vector2(590, -75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food/Area2D"]
+position = Vector2(-10, -1)
+shape = SubResource("CircleShape2D_7qxdi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-2470, -552)
@@ -79,3 +90,35 @@ shape = SubResource("RectangleShape2D_u76mv")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3113.88, 2497)
 shape = SubResource("RectangleShape2D_3gl64")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PointsUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 70.0
+script = ExtResource("5_n3gij")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PointsUI"]
+layout_mode = 0
+offset_left = 697.0
+offset_top = -1390.0
+offset_right = 885.0
+offset_bottom = -1216.0
+texture = ExtResource("3_6pf8d")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PointsUI"]
+layout_mode = 0
+offset_left = 898.0
+offset_top = -1326.0
+offset_right = 1102.0
+offset_bottom = -1251.0
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]

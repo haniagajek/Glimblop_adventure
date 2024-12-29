@@ -15,6 +15,11 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameController="*res://scripts/game_controller.gd"
+EventController="*res://scripts/event_controller.gd"
+
 [input]
 
 left={

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 var direction: Vector2 = Vector2.ZERO
 @export var speed: int = 400
@@ -15,3 +15,4 @@ func _physics_process(delta):
 		$glimblop.flip_h = true
 	elif direction.x > 0:
 		$glimblop.flip_h = false
+
