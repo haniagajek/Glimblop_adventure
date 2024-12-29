@@ -41,6 +41,47 @@ script = ExtResource("2_ra6fi")
 [node name="Camera2D" type="Camera2D" parent="player"]
 position_smoothing_enabled = true
 
+[node name="PointsUI" type="Control" parent="player/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 70.0
+script = ExtResource("5_n3gij")
+
+[node name="Panel" type="Panel" parent="player/Camera2D/PointsUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = -6.463
+anchor_right = 6.092
+anchor_bottom = 0.534
+offset_left = 193.08
+offset_top = -101.48
+offset_right = 319.32
+offset_bottom = -276.36
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="player/Camera2D/PointsUI/Panel"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 44.0
+offset_right = 314.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="player/Camera2D/PointsUI/Panel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 21.0
+offset_right = 134.0
+offset_bottom = 82.0
+texture = ExtResource("3_6pf8d")
+expand_mode = 1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 texture_filter = 1
 position = Vector2(-4, 22)
@@ -90,35 +131,5 @@ shape = SubResource("RectangleShape2D_u76mv")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3113.88, 2497)
 shape = SubResource("RectangleShape2D_3gl64")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PointsUI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 70.0
-offset_bottom = 70.0
-script = ExtResource("5_n3gij")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PointsUI"]
-layout_mode = 0
-offset_left = 697.0
-offset_top = -1390.0
-offset_right = 885.0
-offset_bottom = -1216.0
-texture = ExtResource("3_6pf8d")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/PointsUI"]
-layout_mode = 0
-offset_left = 898.0
-offset_top = -1326.0
-offset_right = 1102.0
-offset_bottom = -1251.0
-theme_override_font_sizes/font_size = 52
-text = "0"
-horizontal_alignment = 1
 
 [connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]

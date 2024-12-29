@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var label =$Label
+@onready var label =$Panel/Label
 
 func _ready():
 	EventController.connect("points_collected", on_event_points_collected)
