@@ -93,6 +93,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 texture = ExtResource("3_6pf8d")
 
 [node name="Food" type="CharacterBody2D" parent="."]
+visible = false
 script = ExtResource("4_dxtdl")
 speed = null
 value = null
