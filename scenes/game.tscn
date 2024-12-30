@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=14 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://by18ihqb0xo0b" path="res://sprites/BG.png" id="1_htcch"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
 [ext_resource type="Texture2D" uid="uid://ts76odu4mlsp" path="res://sprites/glimblop.png" id="3_6pf8d"]
 [ext_resource type="Script" path="res://scenes/Food.gd" id="4_dxtdl"]
 [ext_resource type="Script" path="res://scenes/PointsUI.gd" id="5_n3gij"]
+[ext_resource type="Script" path="res://scenes/SpawnTimer.gd" id="6_2ubb6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
-radius = 146.0
-height = 292.0
+radius = 108.0
+height = 216.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvxrq"]
 
@@ -66,9 +67,9 @@ grow_horizontal = 2
 [node name="Label" type="Label" parent="player/Camera2D/PointsUI/Panel"]
 layout_mode = 0
 offset_left = 110.0
-offset_top = 44.0
+offset_top = 34.0
 offset_right = 314.0
-offset_bottom = 119.0
+offset_bottom = 109.0
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
@@ -132,4 +133,9 @@ shape = SubResource("RectangleShape2D_u76mv")
 position = Vector2(3113.88, 2497)
 shape = SubResource("RectangleShape2D_3gl64")
 
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("6_2ubb6")
+
 [connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="SpawnTimer" to="SpawnTimer" method="_on_timeout"]
