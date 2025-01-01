@@ -12,8 +12,6 @@ radius = 72.0278
 
 [node name="Food" type="CharacterBody2D" parent="."]
 script = ExtResource("1_m1x6i")
-speed = null
-value = null
 
 [node name="FoodSprite" type="Sprite2D" parent="Food"]
 modulate = Color(0.721569, 0.396078, 1, 1)

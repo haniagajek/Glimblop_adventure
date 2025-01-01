@@ -95,8 +95,6 @@ texture = ExtResource("3_6pf8d")
 [node name="Food" type="CharacterBody2D" parent="."]
 visible = false
 script = ExtResource("4_dxtdl")
-speed = null
-value = null
 
 [node name="FoodSprite" type="Sprite2D" parent="Food"]
 modulate = Color(0.721569, 0.396078, 1, 1)
