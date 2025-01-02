@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 # Movement and configuration variables
 var direction: Vector2 = Vector2.ZERO
-@export var speed: int = 280
-@export var value: int = 1
+@export var speed: int = 260
+@export var value: int = 5
 
 func _ready():
 	# Randomize movement direction when the object is initialized
