@@ -13,6 +13,16 @@ func _physics_process(delta):
 	# Obsługa flip_h w zależności od kierunku ruchu w osi X
 	if direction.x < 0:
 		$glimblop.flip_h = true
+	
 	elif direction.x > 0:
 		$glimblop.flip_h = false
 
+
+
+
+
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "BigFish":  # Alternatively, check if the body belongs to the correct group
+		$glimblop.texture = preload("res://sprites/bigFish.png")

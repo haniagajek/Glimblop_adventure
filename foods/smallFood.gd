@@ -1,9 +1,9 @@
-class_name bigFish extends CharacterBody2D
+extends CharacterBody2D
 
 # Movement and configuration variables
 var direction: Vector2 = Vector2.ZERO
 @export var speed: int = 260
-@export var value: int = 5
+@export var value: int = 1
 
 func _ready():
 	# Randomize movement direction when the object is initialized

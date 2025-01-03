@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=14 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://by18ihqb0xo0b" path="res://sprites/BG.png" id="1_htcch"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
@@ -10,9 +10,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
 radius = 108.0
 height = 216.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_715pv"]
-radius = 125.004
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvxrq"]
 
@@ -95,11 +92,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="glimblop" type="Sprite2D" parent="player"]
 texture = ExtResource("3_6pf8d")
 
-[node name="Area2D" type="Area2D" parent="player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
-shape = SubResource("CircleShape2D_715pv")
-
 [node name="Food" type="CharacterBody2D" parent="."]
 visible = false
 script = ExtResource("4_dxtdl")
@@ -146,6 +138,5 @@ script = ExtResource("6_2ubb6")
 
 [connection signal="child_entered_tree" from="player" to="player" method="_on_child_entered_tree"]
 [connection signal="child_entered_tree" from="player/CollisionShape2D" to="player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="SpawnTimer" method="_on_timeout"]

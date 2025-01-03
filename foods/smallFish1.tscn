@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds78wuj5e0kha"]
 
-[ext_resource type="Script" path="res://scenes/Food.gd" id="1_m1x6i"]
+[ext_resource type="Script" path="res://foods/smallFood.gd" id="1_fox3t"]
 [ext_resource type="Texture2D" uid="uid://ts76odu4mlsp" path="res://sprites/glimblop.png" id="2_q6i3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dm8rm"]
@@ -10,27 +10,27 @@ radius = 72.0278
 
 [node name="smallFish1" type="Node2D"]
 
-[node name="Food" type="CharacterBody2D" parent="."]
-script = ExtResource("1_m1x6i")
+[node name="smallFood" type="CharacterBody2D" parent="."]
+script = ExtResource("1_fox3t")
 
-[node name="FoodSprite" type="Sprite2D" parent="Food"]
+[node name="FoodSprite" type="Sprite2D" parent="smallFood"]
 modulate = Color(0.721569, 0.396078, 1, 1)
 texture_filter = 1
 position = Vector2(572, -79)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_q6i3w")
 
-[node name="Area2D" type="Area2D" parent="Food"]
+[node name="Area2D" type="Area2D" parent="smallFood"]
 position = Vector2(590, -75)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Food/Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="smallFood/Area2D"]
 visible = false
 position = Vector2(-590, 75)
 shape = SubResource("CircleShape2D_dm8rm")
 debug_color = Color(0.647059, 0.517647, 0.203922, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Food/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="smallFood/Area2D"]
 position = Vector2(-10, -1)
 shape = SubResource("CircleShape2D_f6cye")
 
-[connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="smallFood/Area2D" to="smallFood" method="_on_area_2d_body_entered"]
