@@ -19,10 +19,6 @@ func _physics_process(delta):
 
 
 
-
-
-
-
 func _on_area_2d_body_entered(body):
 	if body.name == "BigFish":  # Alternatively, check if the body belongs to the correct group
 		$glimblop.texture = preload("res://sprites/bigFish.png")
