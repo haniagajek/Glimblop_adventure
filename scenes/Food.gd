@@ -33,4 +33,8 @@ func _on_area_2d_body_entered(body):
 		
 		else:
 			GameController.points_collected(value)
+			var player_sprite = body.get_node("glimblop") 
+			if total_points > 5:
+				if player_sprite:
+					player_sprite.texture = preload("res://sprites/glimblop-2.png")
 			queue_free()
