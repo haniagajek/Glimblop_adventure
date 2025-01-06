@@ -1,15 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=18 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://by18ihqb0xo0b" path="res://sprites/BG.png" id="1_htcch"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
 [ext_resource type="Texture2D" uid="uid://ts76odu4mlsp" path="res://sprites/glimblop.png" id="3_6pf8d"]
 [ext_resource type="Script" path="res://scenes/Food.gd" id="4_dxtdl"]
 [ext_resource type="Script" path="res://scenes/PointsUI.gd" id="5_n3gij"]
+[ext_resource type="Texture2D" uid="uid://b3y5whl7lugs6" path="res://sprites/meter-under.png" id="5_tacck"]
 [ext_resource type="Script" path="res://scenes/SpawnTimer.gd" id="6_2ubb6"]
+[ext_resource type="Texture2D" uid="uid://ifv6w4xjamk" path="res://sprites/meter-over.png" id="6_22das"]
+[ext_resource type="Script" path="res://scenes/FoodMeter.gd" id="7_fqf7p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
-radius = 108.0
-height = 216.0
+radius = 128.0
+height = 256.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_715pv"]
 radius = 125.004
@@ -61,7 +64,7 @@ anchor_left = 0.148
 anchor_top = -6.463
 anchor_right = 6.092
 anchor_bottom = 0.534
-offset_left = 193.08
+offset_left = -616.92
 offset_top = -101.48
 offset_right = 319.32
 offset_bottom = -276.36
@@ -69,22 +72,34 @@ grow_horizontal = 2
 
 [node name="Label" type="Label" parent="player/Camera2D/PointsUI/Panel"]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 34.0
-offset_right = 314.0
-offset_bottom = 109.0
+offset_left = 976.0
+offset_top = 37.0
+offset_right = 1180.0
+offset_bottom = 112.0
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="player/Camera2D/PointsUI/Panel"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 21.0
-offset_right = 134.0
-offset_bottom = 82.0
+offset_left = 932.0
+offset_top = 24.0
+offset_right = 1000.0
+offset_bottom = 85.0
 texture = ExtResource("3_6pf8d")
 expand_mode = 1
+
+[node name="FoodMeter" type="TextureProgressBar" parent="player/Camera2D/PointsUI/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 140.0
+value = 25.0
+texture_under = ExtResource("5_tacck")
+texture_progress = ExtResource("6_22das")
+tint_under = Color(0.0823529, 0.0823529, 0.0823529, 0.462745)
+tint_progress = Color(0.243137, 0.976471, 0, 1)
+script = ExtResource("7_fqf7p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 texture_filter = 1
