@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=20 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://by18ihqb0xo0b" path="res://sprites/BG.png" id="1_htcch"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scenes/SpawnTimer.gd" id="6_2ubb6"]
 [ext_resource type="Texture2D" uid="uid://ifv6w4xjamk" path="res://sprites/meter-over.png" id="6_22das"]
 [ext_resource type="Script" path="res://scenes/FoodMeter.gd" id="7_fqf7p"]
+[ext_resource type="AudioStream" uid="uid://5f2ml2ja512i" path="res://addons/Water Level Music  - Sunken Heart City.mp3" id="8_jgrfn"]
+[ext_resource type="Texture2D" uid="uid://cdw2gy0o6dit7" path="res://sprites/music.png" id="9_225us"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
 radius = 128.0
@@ -101,6 +103,21 @@ tint_under = Color(0.0823529, 0.0823529, 0.0823529, 0.462745)
 tint_progress = Color(0.243137, 0.976471, 0, 1)
 script = ExtResource("7_fqf7p")
 
+[node name="music" type="TextureButton" parent="player/Camera2D/PointsUI/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 735.0
+offset_top = 18.0
+offset_right = 799.0
+offset_bottom = 82.0
+toggle_mode = true
+texture_normal = ExtResource("9_225us")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="player/Camera2D/PointsUI/Panel/music"]
+stream = ExtResource("8_jgrfn")
+volume_db = -1.59
+autoplay = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 texture_filter = 1
 position = Vector2(-4, 22)
@@ -162,6 +179,8 @@ autostart = true
 script = ExtResource("6_2ubb6")
 
 [connection signal="child_entered_tree" from="player" to="player" method="_on_child_entered_tree"]
+[connection signal="pressed" from="player/Camera2D/PointsUI/Panel/music" to="player/Camera2D/PointsUI" method="_on_music_pressed"]
+[connection signal="toggled" from="player/Camera2D/PointsUI/Panel/music" to="player/Camera2D/PointsUI" method="_on_music_toggled"]
 [connection signal="child_entered_tree" from="player/CollisionShape2D" to="player" method="_on_collision_shape_2d_child_entered_tree"]
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]
