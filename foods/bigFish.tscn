@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjq7y3tnigpgp"]
 
 [ext_resource type="Script" path="res://scenes/Food.gd" id="1_revxe"]
-[ext_resource type="Texture2D" uid="uid://b073arwr381nf" path="res://sprites/bigFish.png" id="2_hh3gd"]
+[ext_resource type="Texture2D" uid="uid://bj2m7sqd0mql2" path="res://sprites/bigFish-03.png" id="2_0h3ml"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dm8rm"]
 
@@ -14,10 +14,9 @@ radius = 286.028
 script = ExtResource("1_revxe")
 
 [node name="FoodSprite" type="Sprite2D" parent="Food"]
-texture_filter = 1
 position = Vector2(590, -47)
 scale = Vector2(1.245, 1.04611)
-texture = ExtResource("2_hh3gd")
+texture = ExtResource("2_0h3ml")
 
 [node name="Area2D" type="Area2D" parent="Food"]
 position = Vector2(590, -75)
