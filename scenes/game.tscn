@@ -48,7 +48,14 @@ texture = ExtResource("1_dp6gm")
 script = ExtResource("2_ra6fi")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+limit_left = -2880
+limit_top = -1950
+limit_right = 3850
+limit_bottom = 2640
 position_smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="PointsUI" type="Control" parent="player/Camera2D"]
 layout_mode = 3
