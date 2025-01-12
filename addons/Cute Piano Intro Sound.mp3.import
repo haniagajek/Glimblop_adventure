@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cl5ay6jfa34em"
+path="res://.godot/imported/Cute Piano Intro Sound.mp3-39e8c986be37a9a9e6f3c78c5470d079.mp3str"
+
+[deps]
+
+source_file="res://addons/Cute Piano Intro Sound.mp3"
+dest_files=["res://.godot/imported/Cute Piano Intro Sound.mp3-39e8c986be37a9a9e6f3c78c5470d079.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

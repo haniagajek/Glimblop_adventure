@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=23 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://cddfnuk2ed70i" path="res://sprites/BG-04.png" id="1_dp6gm"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
@@ -7,10 +7,13 @@
 [ext_resource type="Script" path="res://scenes/PointsUI.gd" id="5_n3gij"]
 [ext_resource type="Texture2D" uid="uid://b3y5whl7lugs6" path="res://sprites/meter-under.png" id="5_tacck"]
 [ext_resource type="Script" path="res://scenes/SpawnTimer.gd" id="6_2ubb6"]
-[ext_resource type="Texture2D" uid="uid://ifv6w4xjamk" path="res://sprites/meter-over.png" id="6_22das"]
+[ext_resource type="Texture2D" uid="uid://ddm7fb86iwc56" path="res://sprites/meter-over-06.png" id="6_5nu12"]
 [ext_resource type="Script" path="res://scenes/FoodMeter.gd" id="7_fqf7p"]
-[ext_resource type="AudioStream" uid="uid://5f2ml2ja512i" path="res://addons/Water Level Music  - Sunken Heart City.mp3" id="8_jgrfn"]
-[ext_resource type="Texture2D" uid="uid://cdw2gy0o6dit7" path="res://sprites/music.png" id="9_225us"]
+[ext_resource type="Texture2D" uid="uid://cqrld5nbi7rx4" path="res://sprites/music-new-07.png" id="8_xuxmt"]
+[ext_resource type="AudioStream" uid="uid://reb7axqou6ov" path="res://addons/Bubble Sound Effect.mp3" id="9_8bem6"]
+[ext_resource type="AudioStream" uid="uid://cl5ay6jfa34em" path="res://addons/Cute Piano Intro Sound.mp3" id="10_mu75s"]
+[ext_resource type="AudioStream" uid="uid://bgclx85cqgr38" path="res://addons/Cartoon POP - Sound Effect for Editing.mp3" id="11_443tu"]
+[ext_resource type="AudioStream" uid="uid://ccmr1hoow6hc6" path="res://addons/Fairy dust, magic sound effect.mp3" id="12_c7dsr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
 radius = 128.0
@@ -25,16 +28,16 @@ radius = 125.004
 radius = 80.0562
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a81ly"]
-size = Vector2(689.5, 3336.75)
+size = Vector2(689.5, 4626.38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksw61"]
-size = Vector2(652, 3464)
+size = Vector2(652, 4760)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u76mv"]
-size = Vector2(6388.25, 621.5)
+size = Vector2(6931.13, 621.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gl64"]
-size = Vector2(6437.75, 456)
+size = Vector2(7034.88, 456)
 
 [node name="game" type="Node2D"]
 
@@ -60,10 +63,10 @@ editor_draw_limits = true
 [node name="PointsUI" type="Control" parent="player/Camera2D"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 30.0
-offset_top = 30.0
+offset_left = 6.0
+offset_top = -58.0
 offset_right = 70.0
-offset_bottom = 70.0
+offset_bottom = -18.0
 script = ExtResource("5_n3gij")
 
 [node name="Panel" type="Panel" parent="player/Camera2D/PointsUI"]
@@ -73,18 +76,18 @@ anchor_left = 0.148
 anchor_top = -6.463
 anchor_right = 6.092
 anchor_bottom = 0.534
-offset_left = -616.92
-offset_top = -101.48
-offset_right = 319.32
-offset_bottom = -276.36
+offset_left = -696.472
+offset_top = -681.48
+offset_right = 239.768
+offset_bottom = -856.36
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="player/Camera2D/PointsUI/Panel"]
 layout_mode = 0
-offset_left = 976.0
-offset_top = 37.0
-offset_right = 1180.0
-offset_bottom = 112.0
+offset_left = 975.0
+offset_top = 34.0
+offset_right = 1179.0
+offset_bottom = 109.0
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
@@ -99,30 +102,34 @@ texture = ExtResource("3_6pf8d")
 expand_mode = 1
 
 [node name="FoodMeter" type="TextureProgressBar" parent="player/Camera2D/PointsUI/Panel"]
-texture_filter = 1
+texture_filter = 5
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 140.0
 value = 25.0
 texture_under = ExtResource("5_tacck")
-texture_progress = ExtResource("6_22das")
+texture_progress = ExtResource("6_5nu12")
 tint_under = Color(0.0823529, 0.0823529, 0.0823529, 0.462745)
 tint_progress = Color(0.243137, 0.976471, 0, 1)
 script = ExtResource("7_fqf7p")
 
 [node name="music" type="TextureButton" parent="player/Camera2D/PointsUI/Panel"]
-texture_filter = 1
+texture_filter = 5
 layout_mode = 0
 offset_left = 735.0
 offset_top = 18.0
 offset_right = 799.0
 offset_bottom = 82.0
 toggle_mode = true
-texture_normal = ExtResource("9_225us")
+texture_normal = ExtResource("8_xuxmt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="player/Camera2D/PointsUI/Panel/music"]
-stream = ExtResource("8_jgrfn")
-volume_db = -1.59
+stream = ExtResource("9_8bem6")
+volume_db = -12.932
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="player/Camera2D/PointsUI/Panel/music"]
+stream = ExtResource("10_mu75s")
 autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
@@ -141,6 +148,14 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
 visible = false
 shape = SubResource("CircleShape2D_715pv")
+
+[node name="eatingSound" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("11_443tu")
+volume_db = -12.825
+
+[node name="UpgradeSound" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("12_c7dsr")
+volume_db = 1.794
 
 [node name="Food" type="CharacterBody2D" parent="."]
 visible = false
@@ -167,19 +182,19 @@ shape = SubResource("CircleShape2D_7qxdi")
 position = Vector2(-2470, -552)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(130, 857)
+position = Vector2(-755, 877)
 shape = SubResource("RectangleShape2D_a81ly")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(5888, 831)
+position = Vector2(6647, 969)
 shape = SubResource("RectangleShape2D_ksw61")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3063, -913)
+position = Vector2(2973, -1710)
 shape = SubResource("RectangleShape2D_u76mv")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3066, 2729)
+position = Vector2(3019, 3420)
 shape = SubResource("RectangleShape2D_3gl64")
 
 [node name="SpawnTimer" type="Timer" parent="."]

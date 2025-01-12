@@ -8,3 +8,4 @@ func _process(delta):
 	# Continuously check for changes in total_points and update the progress bar
 	if value != GameController.total_points:
 		value = GameController.total_points
+		$"../../../../eatingSound".play()

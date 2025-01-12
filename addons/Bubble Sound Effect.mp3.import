@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://reb7axqou6ov"
+path="res://.godot/imported/Bubble Sound Effect.mp3-acd7dc5bb22060a444e99af1b232a537.mp3str"
+
+[deps]
+
+source_file="res://addons/Bubble Sound Effect.mp3"
+dest_files=["res://.godot/imported/Bubble Sound Effect.mp3-acd7dc5bb22060a444e99af1b232a537.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.3
+bpm=119.91
+beat_count=0
+bar_beats=4

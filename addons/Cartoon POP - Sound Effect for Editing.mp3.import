@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgclx85cqgr38"
+path="res://.godot/imported/Cartoon POP - Sound Effect for Editing.mp3-90ca874a8de578e50c4c6c8f69ac7b0f.mp3str"
+
+[deps]
+
+source_file="res://addons/Cartoon POP - Sound Effect for Editing.mp3"
+dest_files=["res://.godot/imported/Cartoon POP - Sound Effect for Editing.mp3-90ca874a8de578e50c4c6c8f69ac7b0f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
