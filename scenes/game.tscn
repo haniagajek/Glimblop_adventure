@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://m7tycixxhln2"]
+[gd_scene load_steps=24 format=3 uid="uid://m7tycixxhln2"]
 
 [ext_resource type="Texture2D" uid="uid://cddfnuk2ed70i" path="res://sprites/BG-04.png" id="1_dp6gm"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_ra6fi"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://reb7axqou6ov" path="res://addons/Bubble Sound Effect.mp3" id="9_8bem6"]
 [ext_resource type="AudioStream" uid="uid://cl5ay6jfa34em" path="res://addons/Cute Piano Intro Sound.mp3" id="10_mu75s"]
 [ext_resource type="AudioStream" uid="uid://bgclx85cqgr38" path="res://addons/Cartoon POP - Sound Effect for Editing.mp3" id="11_443tu"]
+[ext_resource type="AudioStream" uid="uid://cajnxp7fr3n5m" path="res://addons/sprint.mp3" id="11_y3gtw"]
 [ext_resource type="AudioStream" uid="uid://ccmr1hoow6hc6" path="res://addons/Fairy dust, magic sound effect.mp3" id="12_c7dsr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7gn"]
@@ -132,6 +133,10 @@ autoplay = true
 stream = ExtResource("10_mu75s")
 autoplay = true
 
+[node name="sprint" type="AudioStreamPlayer" parent="player/Camera2D/PointsUI/Panel/music"]
+stream = ExtResource("11_y3gtw")
+volume_db = -10.585
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 texture_filter = 1
 position = Vector2(-4, 22)
@@ -153,7 +158,7 @@ shape = SubResource("CircleShape2D_715pv")
 stream = ExtResource("11_443tu")
 volume_db = -12.825
 
-[node name="UpgradeSound" type="AudioStreamPlayer2D" parent="player"]
+[node name="upgradeSound" type="AudioStreamPlayer2D" parent="player"]
 stream = ExtResource("12_c7dsr")
 volume_db = 1.794
 
@@ -202,8 +207,10 @@ autostart = true
 script = ExtResource("6_2ubb6")
 
 [connection signal="child_entered_tree" from="player" to="player" method="_on_child_entered_tree"]
+[connection signal="input_event" from="player" to="player" method="_on_input_event"]
 [connection signal="pressed" from="player/Camera2D/PointsUI/Panel/music" to="player/Camera2D/PointsUI" method="_on_music_pressed"]
 [connection signal="toggled" from="player/Camera2D/PointsUI/Panel/music" to="player/Camera2D/PointsUI" method="_on_music_toggled"]
+[connection signal="finished" from="player/Camera2D/PointsUI/Panel/music/sprint" to="player" method="_on_sprint_finished"]
 [connection signal="child_entered_tree" from="player/CollisionShape2D" to="player" method="_on_collision_shape_2d_child_entered_tree"]
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Food/Area2D" to="Food" method="_on_area_2d_body_entered"]

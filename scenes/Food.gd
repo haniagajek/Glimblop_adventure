@@ -26,7 +26,7 @@ func _on_area_2d_body_entered(body):
 	
 	if body is Player:
 		var total_points = GameController.total_points
-		if total_points < 2:
+		if total_points < 5:
 			var player_sprite = body.get_node("glimblop") 
 			if player_sprite:
 				player_sprite.texture = preload("res://sprites/dead_glimblop.png")
